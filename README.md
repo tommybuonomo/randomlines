@@ -8,7 +8,7 @@ This is a material random background animation!
 ####Gradle
 ```Gradle
 dependencies {
-    compile 'com.tbuonomo.randomlines:randomlines:1.0.0'
+    compile 'com.tbuonomo.randomlines:randomlines:1.0.1'
 }
 ```
 ####In your XML layout
