@@ -57,7 +57,7 @@ bintray {
     key = localProps.getProperty("bintrayApiKey")
     pkg {
         repo = 'maven'
-        name = 'explode-loading'
+        name = 'random-lines'
 
         version {
             name = version

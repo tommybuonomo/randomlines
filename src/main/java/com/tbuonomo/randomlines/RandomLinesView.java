@@ -27,6 +27,7 @@ public class RandomLinesView extends View {
     private float lineSpacing;
     private float lineWidth;
     private int translationMax;
+    private List<ValueAnimator> animators;
 
     // Variables
     private int screenHeight;
@@ -87,7 +88,7 @@ public class RandomLinesView extends View {
         randomLines = new ArrayList<>();
         int heightSegments = (int) (screenHeight * 3 / lineSpacing);
 
-        List<ValueAnimator> animators = new ArrayList<>();
+        animators = new ArrayList<>();
         Random rand = new Random();
 
         for (int i = 0; i < heightSegments; i++) {
@@ -165,6 +166,17 @@ public class RandomLinesView extends View {
         private void refreshTranslateFactors() {
             translateFactorS = random.nextFloat() * 2 - 1.0f;
             translateFactorE = random.nextFloat() * 2 - 1.0f;
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (animators != null) {
+            for (ValueAnimator v : animators) {
+                v.cancel();
+                v = null;
+            }
         }
     }
 
